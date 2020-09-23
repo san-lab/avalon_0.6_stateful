@@ -303,7 +303,7 @@ namespace tcf {
             }*/
 
             WorkloadProcessor *processor = \
-                WorkloadProcessor::CreateWorkloadProcessor(workload_type, worker_id, keepState);
+                WorkloadProcessor::CreateWorkloadProcessor(workload_type, worker_id, keep_state);
             tcf::error::ThrowIf<tcf::error::WorkloadError>(
                 processor == nullptr,
                 "Workload cannot be processed by this worker");
