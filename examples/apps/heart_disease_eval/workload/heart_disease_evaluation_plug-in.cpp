@@ -25,7 +25,9 @@ REGISTER_WORKLOAD_PROCESSOR("heart-disease-eval",HeartDiseaseEval)
 
 HeartDiseaseEval::HeartDiseaseEval() {}
 
-HeartDiseaseEval::~HeartDiseaseEval() {}
+HeartDiseaseEval::~HeartDiseaseEval() {
+    HeartDiseaseEval::init = false;
+}
 
 void HeartDiseaseEval::ProcessWorkOrder(
         std::string workload_id,
@@ -37,8 +39,13 @@ void HeartDiseaseEval::ProcessWorkOrder(
     std::string result_str;
     int out_wo_data_size = out_work_order_data.size();
 
-    std::unique_ptr<HeartDiseaseEvalLogic> heart_disease_eval_logic(
+    if(!init){
+         std::unique_ptr<HeartDiseaseEvalLogic> heart_disease_eval_logic(
             new HeartDiseaseEvalLogic());
+         HeartDiseaseEval::init = true;
+     }
+
+    
     // Clear state - to reset totalRisk and count
     for (auto wo_data : in_work_order_data) {
         std::string inputData =
