@@ -104,10 +104,10 @@ namespace tcf {
             "workloadId",
             "invalid request; failed to retrieve work load id");
 
-        keep_state = GetJsonStr(
+        /*keep_state = GetJsonStr(
             params_object,
             "keepState",
-            "invalid request; failed to retrieve keep state");
+            "invalid request; failed to retrieve keep state");*/
 
         requester_id = GetJsonStr(
             params_object,
@@ -237,8 +237,8 @@ namespace tcf {
                   "failed to serialize work order id");
         JsonSetStr(result, "workloadId", workload_id.c_str(),
                 "failed to serialize workload id");
-        JsonSetStr(result, "keepState", keep_state.c_str(),
-                "failed to serialize keep state");
+        /*JsonSetStr(result, "keepState", keep_state.c_str(),
+                "failed to serialize keep state");*/
         JsonSetStr(result, "workerId", worker_id.c_str(),
                 "failed to serialize worker id");
         JsonSetStr(result, "requesterId", requester_id.c_str(),
@@ -294,13 +294,13 @@ namespace tcf {
             ByteArray workload_bytes = HexStringToBinary(workload_id);
             std::string workload_type(workload_bytes.begin(), workload_bytes.end());
 
-            /*if(workload_type.substr(workload_type.size() - 10) == "_keepState"){
-                 keepState = "true";
+            if(workload_type.substr(workload_type.size() - 10) == "_keepState"){
+                 keep_state = "true";
                  workload_type = workload_type.substr(0, workload_type.size() - 10);
             }
              else {
-                 keepState = "false";
-            }*/
+                 keep_state = "false";
+            }
 
             WorkloadProcessor *processor = \
                 WorkloadProcessor::CreateWorkloadProcessor(workload_type, worker_id, keep_state);

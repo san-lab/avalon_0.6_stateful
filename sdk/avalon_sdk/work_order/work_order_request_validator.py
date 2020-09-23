@@ -37,7 +37,6 @@ class WorkOrderRequestValidator():
             "workOrderId": True,
             "workerId": True,
             "workloadId": True,
-            "keepState": True,
             "requesterId": True,
             "workerEncryptionKey": False,
             "dataEncryptionAlgorithm": False,
