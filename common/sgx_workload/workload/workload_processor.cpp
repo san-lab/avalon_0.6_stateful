@@ -48,6 +48,8 @@ WorkloadProcessor* WorkloadProcessor::CreateWorkloadProcessor(
    std::string workload_tag = worker_id + "_" + workload_id;
 
    auto itr_aux = initialized_processors.find(workload_tag);
+   Log(TCF_LOG_ERROR,"Workload tag: %s", workload_tag);
+   Log(TCF_LOG_ERROR,"KeepState value: %s", keepState);
 
    if (itr_aux == initialized_processors.end() || keepState != "true") {
        // Search the workload processor type in the table
