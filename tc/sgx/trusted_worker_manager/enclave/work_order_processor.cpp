@@ -104,7 +104,7 @@ namespace tcf {
             "workloadId",
             "invalid request; failed to retrieve work load id");
 
-        keepState = GetJsonStr(
+        keep_state = GetJsonStr(
             params_object,
             "keepState",
             "invalid request; failed to retrieve keep state");
@@ -237,6 +237,8 @@ namespace tcf {
                   "failed to serialize work order id");
         JsonSetStr(result, "workloadId", workload_id.c_str(),
                 "failed to serialize workload id");
+        JsonSetStr(result, "keepState", keep_state.c_str(),
+                "failed to serialize keep state");
         JsonSetStr(result, "workerId", worker_id.c_str(),
                 "failed to serialize worker id");
         JsonSetStr(result, "requesterId", requester_id.c_str(),
