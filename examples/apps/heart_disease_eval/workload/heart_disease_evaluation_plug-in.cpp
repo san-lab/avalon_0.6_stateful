@@ -25,9 +25,7 @@ REGISTER_WORKLOAD_PROCESSOR("heart-disease-eval",HeartDiseaseEval)
 
 HeartDiseaseEval::HeartDiseaseEval() {}
 
-HeartDiseaseEval::~HeartDiseaseEval() {
-    HeartDiseaseEval::heart_disease_eval_logic(new HeartDiseaseEvalLogic());
-}
+HeartDiseaseEval::~HeartDiseaseEval() {}
 
 void HeartDiseaseEval::ProcessWorkOrder(
         std::string workload_id,
@@ -44,7 +42,7 @@ void HeartDiseaseEval::ProcessWorkOrder(
         std::string inputData =
               ByteArrayToString(wo_data.decrypted_data);
         try {
-            result_str = heart_disease_eval_logic->executeWorkOrder(inputData);
+            result_str = HeartDiseaseEval::heart_disease_eval_logic->executeWorkOrder(inputData);
         } catch(...) {
             result_str = "Failed to process workorder data";
         }

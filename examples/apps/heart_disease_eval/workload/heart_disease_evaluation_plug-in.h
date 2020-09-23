@@ -17,6 +17,7 @@
 #include <vector>
 
 #include "workload_processor.h"
+#include "heart_disease_evaluation_logic.h"
 
 class HeartDiseaseEval: public WorkloadProcessor {
 public:
@@ -33,5 +34,5 @@ public:
                 const std::vector<tcf::WorkOrderData>& in_work_order_data,
                 std::vector<tcf::WorkOrderData>& out_work_order_data);
 private:
-        std::unique_ptr<HeartDiseaseEvalLogic> heart_disease_eval_logic;
+        std::unique_ptr<HeartDiseaseEvalLogic> heart_disease_eval_logic(new HeartDiseaseEvalLogic());
 };
