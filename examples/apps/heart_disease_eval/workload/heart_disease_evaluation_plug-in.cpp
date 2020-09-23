@@ -39,7 +39,7 @@ void HeartDiseaseEval::ProcessWorkOrder(
     std::string result_str;
     int out_wo_data_size = out_work_order_data.size();
 
-    if(!HeartDiseaseEvalLogic::init){
+    if(!HeartDiseaseEval::init){
         std::unique_ptr<HeartDiseaseEvalLogic> heart_disease_eval_logic_temp(
             new HeartDiseaseEvalLogic());
         HeartDiseaseEval::heart_disease_eval_logic = std::move(heart_disease_eval_logic_temp);
