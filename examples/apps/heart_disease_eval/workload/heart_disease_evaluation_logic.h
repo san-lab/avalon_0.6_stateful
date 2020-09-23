@@ -17,27 +17,13 @@
 #include <vector>
 
 class HeartDiseaseEvalLogic {
-private:
-        double model_A(double max, double opt, double data);
-        double model_B(double max, double opt, double data);
-        double score_age(double data);
-        double score_sex(int sex);
-        double score_cp(int cp_type);
-        double score_trestbps(double data);
-        double score_chol(double data);
-        double score_fbs(double data);
-        double score_restecg(int type);
-        double score_thalach(double data);
-        double score_exang(int type);
-        double score_oldpeak(double depression);
-        double score_slop(int type);
-        double score_ca(int number);
-        double score_thaldur(int durationMin);
-        double score_num(int num);
-
+private:  
+        std::vector<std::string> keys;
+        std::vector<std::string> values;
 public:
         HeartDiseaseEvalLogic(void);
         ~HeartDiseaseEvalLogic(void);
 
         std::string executeWorkOrder(std::string decrypted_user_input_str);
 };
+
