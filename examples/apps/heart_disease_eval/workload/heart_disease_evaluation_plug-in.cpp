@@ -19,15 +19,15 @@
 #include <memory>
 
 #include "heart_disease_evaluation_plug-in.h"
-//#include "heart_disease_evaluation_logic.h"
+#include "heart_disease_evaluation_logic.h"
 
 REGISTER_WORKLOAD_PROCESSOR("heart-disease-eval",HeartDiseaseEval)
 
+std::unique_ptr<HeartDiseaseEvalLogic> heart_disease_eval_logic(new HeartDiseaseEvalLogic());
+
 HeartDiseaseEval::HeartDiseaseEval() {}
 
-HeartDiseaseEval::~HeartDiseaseEval() {
-    HeartDiseaseEval::init = false;
-}
+HeartDiseaseEval::~HeartDiseaseEval() {}
 
 void HeartDiseaseEval::ProcessWorkOrder(
         std::string workload_id,
@@ -39,20 +39,12 @@ void HeartDiseaseEval::ProcessWorkOrder(
     std::string result_str;
     int out_wo_data_size = out_work_order_data.size();
 
-    if(!HeartDiseaseEval::init){
-        std::unique_ptr<HeartDiseaseEvalLogic> heart_disease_eval_logic_temp(
-            new HeartDiseaseEvalLogic());
-        HeartDiseaseEval::heart_disease_eval_logic = std::move(heart_disease_eval_logic_temp);
-        HeartDiseaseEval::init = true;
-    }
-
-    
     // Clear state - to reset totalRisk and count
     for (auto wo_data : in_work_order_data) {
         std::string inputData =
               ByteArrayToString(wo_data.decrypted_data);
         try {
-            result_str = HeartDiseaseEval::heart_disease_eval_logic->executeWorkOrder(inputData);
+            result_str = heart_disease_eval_logic->executeWorkOrder(inputData);
         } catch(...) {
             result_str = "Failed to process workorder data";
         }
