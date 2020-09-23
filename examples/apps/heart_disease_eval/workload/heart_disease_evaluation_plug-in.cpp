@@ -19,7 +19,7 @@
 #include <memory>
 
 #include "heart_disease_evaluation_plug-in.h"
-#include "heart_disease_evaluation_logic.h"
+//#include "heart_disease_evaluation_logic.h"
 
 REGISTER_WORKLOAD_PROCESSOR("heart-disease-eval",HeartDiseaseEval)
 
@@ -42,8 +42,8 @@ void HeartDiseaseEval::ProcessWorkOrder(
     if(!HeartDiseaseEvalLogic::init){
         std::unique_ptr<HeartDiseaseEvalLogic> heart_disease_eval_logic_temp(
             new HeartDiseaseEvalLogic());
-        HeartDiseaseEvalLogic::heart_disease_eval_logic = std::move(heart_disease_eval_logic_temp);
-        HeartDiseaseEvalLogic::init = true;
+        HeartDiseaseEval::heart_disease_eval_logic = std::move(heart_disease_eval_logic_temp);
+        HeartDiseaseEval::init = true;
     }
 
     
@@ -52,7 +52,7 @@ void HeartDiseaseEval::ProcessWorkOrder(
         std::string inputData =
               ByteArrayToString(wo_data.decrypted_data);
         try {
-            result_str = heart_disease_eval_logic->executeWorkOrder(inputData);
+            result_str = HeartDiseaseEval::heart_disease_eval_logic->executeWorkOrder(inputData);
         } catch(...) {
             result_str = "Failed to process workorder data";
         }
