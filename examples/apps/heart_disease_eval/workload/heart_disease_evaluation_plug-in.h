@@ -35,5 +35,5 @@ public:
                 std::vector<tcf::WorkOrderData>& out_work_order_data);
 private:
         bool init;
-        std::unique_ptr<HeartDiseaseEvalLogic> heart_disease_eval_logic;
+        std::unique_ptr<HeartDiseaseEvalLogic> heart_disease_eval_logic();
 };

@@ -39,17 +39,20 @@ void HeartDiseaseEval::ProcessWorkOrder(
     std::string result_str;
     int out_wo_data_size = out_work_order_data.size();
 
-    if(!init){
-         HeartDiseaseEval::heart_disease_eval_logic = new HeartDiseaseEvalLogic();
-         HeartDiseaseEval::init = true;
+    if(!HeartDiseaseEvalLogic::init){
+        std::unique_ptr<HeartDiseaseEvalLogic> heart_disease_eval_logic_temp(
+            new HeartDiseaseEvalLogic());
+        HeartDiseaseEvalLogic::heart_disease_eval_logic = std::move(heart_disease_eval_logic_temp);
+        HeartDiseaseEvalLogic::init = true;
     }
 
+    
     // Clear state - to reset totalRisk and count
     for (auto wo_data : in_work_order_data) {
         std::string inputData =
               ByteArrayToString(wo_data.decrypted_data);
         try {
-            result_str = HeartDiseaseEval::heart_disease_eval_logic->executeWorkOrder(inputData);
+            result_str = heart_disease_eval_logic->executeWorkOrder(inputData);
         } catch(...) {
             result_str = "Failed to process workorder data";
         }
