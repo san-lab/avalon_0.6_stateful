@@ -113,4 +113,4 @@ public:
       WorkloadProcessor::RegisterWorkloadProcessor(WORKLOADID_STR, new TYPE());
 
 #define SPECIFY_STATEFULL(STATIC_BOOL) \
-      bool IsStateful() {return STATIC_BOOL}
+      bool IsStateful() {return STATIC_BOOL;}
