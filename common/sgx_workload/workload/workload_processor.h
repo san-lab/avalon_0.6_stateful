@@ -97,7 +97,7 @@ public:
    WorkloadProcessor* Clone() const { return new TYPE(*this); }
 
 #define IMPL_WORKLOAD_PROCESSOR_ISSTATEFUL(STATEFULNESS) \
-   bool* IsStateful() const { return STATEFULNESS; }
+   bool IsStateful() const { return STATEFULNESS; }
 
 /**
  * This macro registers a workload processor for a specific application.
