@@ -49,7 +49,11 @@ WorkloadProcessor* WorkloadProcessor::CreateWorkloadProcessor(
 
    auto itr_aux = initialized_processors.find(workload_tag);
 
-   if (itr_aux == initialized_processors.end() || keepState != "true") {
+   if (itr_aux != initialized_processors.end() && keepState == "true" && processor->IsStateful()) {
+      processor = (*itr_aux).second;
+      return processor;
+   }
+   else {
        // Search the workload processor type in the table
       auto itr = workload_processor_table.find(workload_id);
       if (itr == workload_processor_table.end()) {
@@ -63,17 +67,6 @@ WorkloadProcessor* WorkloadProcessor::CreateWorkloadProcessor(
         Log(TCF_LOG_ERROR,"Workload Processor found, but it's class is nullptr");
         return nullptr;
       } else {
-        WorkloadProcessor* cloned_processor = processor->Clone();
-        initialized_processors[workload_tag] = cloned_processor;
-        return cloned_processor;
-      }
-   
-   } else {
-      processor = (*itr_aux).second;
-      if(processor->IsStateful()){
-        return processor;
-      }
-      else {
         WorkloadProcessor* cloned_processor = processor->Clone();
         initialized_processors[workload_tag] = cloned_processor;
         return cloned_processor;
