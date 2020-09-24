@@ -43,7 +43,15 @@ public:
      */
     static WorkloadProcessor* CreateWorkloadProcessor(std::string workload_id, std::string worker_id, std::string keepState);
 
-    static bool IsStateful();
+    static bool Statefulness = false;
+
+    static void setStatefulness(bool newValue){
+        Statefulness = newValue;
+    }
+
+    static bool getStatefulnes(){
+        return Statefulness;
+    }
 
     /**
      * Register a WorkloadProcessor.
