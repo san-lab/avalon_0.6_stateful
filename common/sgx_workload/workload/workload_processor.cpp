@@ -69,7 +69,7 @@ WorkloadProcessor* WorkloadProcessor::CreateWorkloadProcessor(
       } else {
         WorkloadProcessor* cloned_processor = processor->Clone();
         initialized_processors[workload_tag] = cloned_processor;
-        return cloned_processor;
+        return nullptr;
       }
    }
 }
