@@ -24,6 +24,7 @@ public:
     virtual ~SimpleWallet(void);
 
     IMPL_WORKLOAD_PROCESSOR_CLONE(SimpleWallet)
+    SPECIFY_STATEFULL(false)
 
     void ProcessWorkOrder(
         std::string workload_id,

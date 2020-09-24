@@ -70,6 +70,13 @@ WorkloadProcessor* WorkloadProcessor::CreateWorkloadProcessor(
    
    } else {
       processor = (*itr_aux).second;
-      return processor;
+      if(processor->IsStateful()){
+        return processor;
+      }
+      else {
+        WorkloadProcessor* cloned_processor = processor->Clone();
+        initialized_processors[workload_tag] = cloned_processor;
+        return cloned_processor;
+      }
    }
 }
