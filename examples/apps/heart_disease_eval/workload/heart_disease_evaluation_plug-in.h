@@ -24,6 +24,7 @@ public:
         virtual ~HeartDiseaseEval(void);
 
         IMPL_WORKLOAD_PROCESSOR_CLONE(HeartDiseaseEval)
+        IMPL_WORKLOAD_PROCESSOR_ISSTATEFUL(false)
 
         void ProcessWorkOrder(
                 std::string workload_id,

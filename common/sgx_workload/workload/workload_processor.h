@@ -35,6 +35,8 @@ public:
     /** Clone a WorkloadProcessor */
     virtual WorkloadProcessor* Clone() const = 0;
 
+    virtual bool IsStateful() const = 0;
+
     /**
      * Create a WorkloadProcessor
      *
@@ -42,16 +44,6 @@ public:
      * @returns           Pointer to WorkloadProcessor
      */
     static WorkloadProcessor* CreateWorkloadProcessor(std::string workload_id, std::string worker_id, std::string keepState);
-
-    static bool Statefulness = false;
-
-    static void setStatefulness(bool newValue){
-        Statefulness = newValue;
-    }
-
-    static bool getStatefulnes(){
-        return Statefulness;
-    }
 
     /**
      * Register a WorkloadProcessor.
@@ -104,6 +96,9 @@ public:
 #define IMPL_WORKLOAD_PROCESSOR_CLONE(TYPE) \
    WorkloadProcessor* Clone() const { return new TYPE(*this); }
 
+#define IMPL_WORKLOAD_PROCESSOR_ISSTATEFUL(STATEFULNESS) \
+   bool* IsStateful() const { return STATEFULNESS; }
+
 /**
  * This macro registers a workload processor for a specific application.
  * It associates a string with a workload.
@@ -119,6 +114,3 @@ public:
 #define REGISTER_WORKLOAD_PROCESSOR(WORKLOADID_STR,TYPE) \
    WorkloadProcessor* TYPE##_myProcessor = \
       WorkloadProcessor::RegisterWorkloadProcessor(WORKLOADID_STR, new TYPE());
-
-#define SPECIFY_STATEFULL(STATIC_BOOL) \
-      bool IsStateful() {return STATIC_BOOL;}

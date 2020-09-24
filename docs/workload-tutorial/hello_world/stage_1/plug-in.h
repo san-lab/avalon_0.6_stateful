@@ -26,6 +26,7 @@ const char* workload_id = "hello-world";
 class Workload : public WorkloadProcessor {
 public:
     IMPL_WORKLOAD_PROCESSOR_CLONE(Workload)
+    IMPL_WORKLOAD_PROCESSOR_ISSTATEFUL(false)
 
     void ProcessWorkOrder(
         std::string workload_id,

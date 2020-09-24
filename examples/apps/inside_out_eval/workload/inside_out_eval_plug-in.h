@@ -25,6 +25,7 @@ public:
         virtual ~InsideOutEval(void);
 
         IMPL_WORKLOAD_PROCESSOR_CLONE(InsideOutEval);
+        IMPL_WORKLOAD_PROCESSOR_ISSTATEFUL(false)
 
         void ProcessWorkOrder(
                 std::string workload_id,

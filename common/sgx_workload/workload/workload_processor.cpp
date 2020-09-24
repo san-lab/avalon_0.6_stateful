@@ -70,7 +70,7 @@ WorkloadProcessor* WorkloadProcessor::CreateWorkloadProcessor(
    
    } else {
       processor = (*itr_aux).second;
-      if(processor->getStatefulnes()){
+      if(processor->IsStateful()){
         return processor;
       }
       else {

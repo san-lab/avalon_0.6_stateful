@@ -25,6 +25,7 @@ public:
     virtual ~EchoResult(void);
 
     IMPL_WORKLOAD_PROCESSOR_CLONE(EchoResult)
+    IMPL_WORKLOAD_PROCESSOR_ISSTATEFUL(false)
 
     void ProcessWorkOrder(
                 std::string workload_id,

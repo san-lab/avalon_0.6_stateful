@@ -46,6 +46,7 @@ public:
     virtual ~KMEWorkloadProcessor(void) {}
 
     IMPL_WORKLOAD_PROCESSOR_CLONE(KMEWorkloadProcessor);
+    IMPL_WORKLOAD_PROCESSOR_ISSTATEFUL(false)
 
     void GetUniqueId(
         const std::vector<tcf::WorkOrderData>& in_work_order_data,
