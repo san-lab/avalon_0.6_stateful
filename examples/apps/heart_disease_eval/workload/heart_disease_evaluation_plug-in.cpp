@@ -25,11 +25,11 @@ REGISTER_WORKLOAD_PROCESSOR("heart-disease-eval",HeartDiseaseEval)
 
 HeartDiseaseEvalLogic* heart_disease_eval_logic(new HeartDiseaseEvalLogic());
 
-HeartDiseaseEval::HeartDiseaseEval() {}
-
-HeartDiseaseEval::~HeartDiseaseEval() {
-    heart_disease_eval_logic = &(new HeartDiseaseEvalLogic());
+HeartDiseaseEval::HeartDiseaseEval() {
+    heart_disease_eval_logic = new HeartDiseaseEvalLogic();
 }
+
+HeartDiseaseEval::~HeartDiseaseEval() {}
 
 void HeartDiseaseEval::ProcessWorkOrder(
         std::string workload_id,
