@@ -43,7 +43,7 @@ public:
      */
     static WorkloadProcessor* CreateWorkloadProcessor(std::string workload_id, std::string worker_id, std::string keepState);
 
-    static bool IsStateful() const;
+    static bool IsStateful();
 
     /**
      * Register a WorkloadProcessor.
@@ -113,4 +113,4 @@ public:
       WorkloadProcessor::RegisterWorkloadProcessor(WORKLOADID_STR, new TYPE());
 
 #define SPECIFY_STATEFULL(STATIC_BOOL) \
-      bool IsStateful() const {return STATIC_BOOL}
+      bool IsStateful() {return STATIC_BOOL}
