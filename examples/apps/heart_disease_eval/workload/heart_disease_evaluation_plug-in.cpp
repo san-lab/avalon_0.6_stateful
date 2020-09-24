@@ -25,7 +25,9 @@ REGISTER_WORKLOAD_PROCESSOR("heart-disease-eval",HeartDiseaseEval)
 
 std::unique_ptr<HeartDiseaseEvalLogic> heart_disease_eval_logic(new HeartDiseaseEvalLogic());
 
-HeartDiseaseEval::HeartDiseaseEval() {}
+HeartDiseaseEval::HeartDiseaseEval() {
+    heart_disease_eval_logic(new HeartDiseaseEvalLogic());
+}
 
 HeartDiseaseEval::~HeartDiseaseEval() {}
 
