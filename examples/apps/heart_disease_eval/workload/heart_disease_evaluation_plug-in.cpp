@@ -27,7 +27,9 @@ HeartDiseaseEvalLogic* heart_disease_eval_logic(new HeartDiseaseEvalLogic());
 
 HeartDiseaseEval::HeartDiseaseEval() {}
 
-HeartDiseaseEval::~HeartDiseaseEval() {}
+HeartDiseaseEval::~HeartDiseaseEval() {
+    heart_disease_eval_logic = &(new HeartDiseaseEvalLogic());
+}
 
 void HeartDiseaseEval::ProcessWorkOrder(
         std::string workload_id,
