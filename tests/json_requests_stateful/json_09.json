@@ -1,8 +1,8 @@
 {
     "jsonrpc": "2.0",
     "method": "WorkOrderGetResult",
-    "id": 16,
+    "id": 13,
     "params": {
-        "workOrderId": "0x11ABCD"
+        "workOrderId": "0x11ABCE"
     }
 }

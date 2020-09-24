@@ -1,15 +1,15 @@
 {
     "jsonrpc": "2.0",
     "method": "WorkOrderSubmit",
-    "id": 16,
+    "id": 13,
     "params": {
         "responseTimeoutMSecs": 6000,
         "payloadFormat": "JSON-RPC",
         "resultUri": "resulturi",
         "notifyUri": "notifyuri",
-        "workOrderId": "0x11ABCD",
+        "workOrderId": "0x11ABCE",
         "workerId":"",
-        "workloadId": "heart-disease-eval",
+        "workloadId": "heart-disease-eval_keepState",
         "requesterId": "0x3456",
         "dataEncryptionAlgorithm": "AES-GCM-256",
         "encryptedSessionKey": "sessionkey",
@@ -18,13 +18,8 @@
         "encryptedRequestHash": "requesthash",
         "requesterSignature": "",
         "inData": [
-		           {"index": 2,
-                    "data": "Heart disease evaluation data: 22 11 1 67  102 125 1 95 5 10 1 11 36 1",
-                    "encryptedDataEncryptionKey": "",
-                    "iv": ""
-                   },
                    {"index": 1,
-                    "data": "Heart disease evaluation data: 32 11 1 156  132 125 1 95  1 0 1 1 3 1",
+                    "data": "retrieve:verde",
                     "encryptedDataEncryptionKey": "",
                     "iv": ""
                    }
