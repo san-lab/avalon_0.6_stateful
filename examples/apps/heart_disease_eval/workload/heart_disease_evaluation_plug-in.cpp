@@ -19,14 +19,11 @@
 #include <memory>
 
 #include "heart_disease_evaluation_plug-in.h"
-#include "heart_disease_evaluation_logic.h"
 
 REGISTER_WORKLOAD_PROCESSOR("heart-disease-eval",HeartDiseaseEval)
 
-HeartDiseaseEvalLogic* heart_disease_eval_logic(new HeartDiseaseEvalLogic());
-
 HeartDiseaseEval::HeartDiseaseEval() {
-    heart_disease_eval_logic = NULL;
+    heart_disease_eval_logic = new HeartDiseaseEvalLogic();
 }
 
 HeartDiseaseEval::~HeartDiseaseEval() {}
