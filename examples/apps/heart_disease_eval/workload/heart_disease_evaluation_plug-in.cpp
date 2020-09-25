@@ -28,7 +28,8 @@ HeartDiseaseEval::HeartDiseaseEval() {
 
 HeartDiseaseEval::~HeartDiseaseEval() {}
 
-HeartDiseaseEval::ResetLogic() {
+void HeartDiseaseEval::ResetLogic() {
+    delete heart_disease_eval_logic;
     heart_disease_eval_logic = new HeartDiseaseEvalLogic();
 }
 

@@ -67,6 +67,7 @@ WorkloadProcessor* WorkloadProcessor::CreateWorkloadProcessor(
         Log(TCF_LOG_ERROR,"Workload Processor found, but it's class is nullptr");
         return nullptr;
       } else {
+        processor->ResetLogic();
         WorkloadProcessor* cloned_processor = processor->Clone();
         initialized_processors[workload_tag] = cloned_processor;
         return cloned_processor;
