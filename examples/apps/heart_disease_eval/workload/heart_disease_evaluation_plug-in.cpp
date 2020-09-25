@@ -28,6 +28,10 @@ HeartDiseaseEval::HeartDiseaseEval() {
 
 HeartDiseaseEval::~HeartDiseaseEval() {}
 
+HeartDiseaseEval::ResetLogic() {
+    heart_disease_eval_logic = new HeartDiseaseEvalLogic();
+}
+
 void HeartDiseaseEval::ProcessWorkOrder(
         std::string workload_id,
         const ByteArray& requester_id,

@@ -22,6 +22,8 @@ EchoResult::EchoResult() {}
 
 EchoResult::~EchoResult() {}
 
+void EchoResult::ResetLogic(void){}
+
 void EchoResult::ProcessWorkOrder(
         std::string workload_id,
         const ByteArray& requester_id,

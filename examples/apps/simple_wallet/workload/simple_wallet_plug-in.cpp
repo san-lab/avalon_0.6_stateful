@@ -32,6 +32,8 @@ SimpleWallet::SimpleWallet() {
 
 SimpleWallet::~SimpleWallet() {}
 
+void SimpleWallet::ResetLogic(){}
+
 void SimpleWallet::ProcessWorkOrder(
         std::string workload_id,
         const ByteArray& requester_id,

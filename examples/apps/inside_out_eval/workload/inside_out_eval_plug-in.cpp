@@ -20,6 +20,8 @@ InsideOutEval::InsideOutEval() {}
 
 InsideOutEval::~InsideOutEval() {}
 
+void InsideOutEval:: ResetLogic(){}
+
 REGISTER_WORKLOAD_PROCESSOR("inside-out-eval", InsideOutEval)
 
 void InsideOutEval::ProcessWorkOrder(

@@ -27,6 +27,8 @@ public:
         IMPL_WORKLOAD_PROCESSOR_CLONE(InsideOutEval);
         IMPL_WORKLOAD_PROCESSOR_ISSTATEFUL(false)
 
+        void ResetLogic(void);
+
         void ProcessWorkOrder(
                 std::string workload_id,
                 const ByteArray& requester_id,
