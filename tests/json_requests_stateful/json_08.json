@@ -1,7 +1,7 @@
 {
     "jsonrpc": "2.0",
     "method": "WorkOrderSubmit",
-    "id": 13,
+    "id": 12,
     "params": {
         "responseTimeoutMSecs": 6000,
         "payloadFormat": "JSON-RPC",
@@ -19,7 +19,7 @@
         "requesterSignature": "",
         "inData": [
                    {"index": 1,
-                    "data": "retrieve:verde",
+                    "data": "retrieve:blanco",
                     "encryptedDataEncryptionKey": "",
                     "iv": ""
                    }

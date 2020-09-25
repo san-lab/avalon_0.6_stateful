@@ -1,6 +1,6 @@
 {
     "jsonrpc": "2.0",
-    "method": "WorkOrderReceiptRetrieve",
+    "method": "WorkOrderGetResult",
     "id": 11,
     "params": {
         "workOrderId": "0x11ABCD"
