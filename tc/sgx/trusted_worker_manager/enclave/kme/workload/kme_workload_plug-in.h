@@ -48,6 +48,9 @@ public:
     IMPL_WORKLOAD_PROCESSOR_CLONE(KMEWorkloadProcessor);
     IMPL_WORKLOAD_PROCESSOR_ISSTATEFUL(false)
 
+
+    void ResetLogic(void){}
+
     void GetUniqueId(
         const std::vector<tcf::WorkOrderData>& in_work_order_data,
         std::vector<tcf::WorkOrderData>& out_work_order_data);
