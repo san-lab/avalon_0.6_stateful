@@ -26,7 +26,7 @@ REGISTER_WORKLOAD_PROCESSOR("heart-disease-eval",HeartDiseaseEval)
 HeartDiseaseEvalLogic* heart_disease_eval_logic(new HeartDiseaseEvalLogic());
 
 HeartDiseaseEval::HeartDiseaseEval() {
-    heart_disease_eval_logic = new HeartDiseaseEvalLogic();
+    heart_disease_eval_logic = NULL;
 }
 
 HeartDiseaseEval::~HeartDiseaseEval() {}
