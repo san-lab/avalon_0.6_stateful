@@ -27,7 +27,7 @@ public:
         HeartDiseaseEvalLogic* heart_disease_eval_logic;
 
         IMPL_WORKLOAD_PROCESSOR_CLONE(HeartDiseaseEval)
-        IMPL_WORKLOAD_PROCESSOR_ISSTATEFUL(false)
+        IMPL_WORKLOAD_PROCESSOR_ISSTATEFUL(true)
 
         void ResetLogic(void);
 
