@@ -40,7 +40,7 @@ void HeartDiseaseEval::ProcessWorkOrder(
     std::unique_ptr<HeartDiseaseEvalLogic> heart_disease_eval_logic(
             new HeartDiseaseEvalLogic());
     // Clear state - to reset totalRisk and count
-    heart_disease_eval_logic->executeWorkOrder("");
+    //heart_disease_eval_logic->executeWorkOrder("");
     for (auto wo_data : in_work_order_data) {
         std::string inputData =
               ByteArrayToString(wo_data.decrypted_data);
