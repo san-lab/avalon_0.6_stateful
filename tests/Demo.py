@@ -67,8 +67,7 @@ def local_main(config):
             if "WorkOrderSubmit" in input_json_str1:
                 # Update workOrderId , workerId and workloadId
                 input_json_obj = json.loads(input_json_str1)
-                #wo_id = hex(random.randint(1, 2**64 - 1))
-                wo_id = '0x66c02f6bf1edf40a'
+                wo_id = hex(random.randint(1, 2**64 - 1))
                 input_json_obj["params"]["workOrderId"] = wo_id
                 input_json_obj["params"]["workerId"] = worker_id
 
