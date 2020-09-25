@@ -49,6 +49,10 @@ WorkloadProcessor* WorkloadProcessor::CreateWorkloadProcessor(
 
    auto itr_aux = initialized_processors.find(workload_tag);
 
+   if (keepState != "true"){
+      return nullptr;
+   }
+
    if (itr_aux != initialized_processors.end() && keepState == "true" && processor->IsStateful()) {
       processor = (*itr_aux).second;
       return processor;
@@ -70,7 +74,7 @@ WorkloadProcessor* WorkloadProcessor::CreateWorkloadProcessor(
         processor->ResetLogic();
         WorkloadProcessor* cloned_processor = processor->Clone();
         initialized_processors[workload_tag] = cloned_processor;
-        return nullptr;
+        return cloned_processor;
       }
    }
 }
